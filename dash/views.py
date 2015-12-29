@@ -11,11 +11,10 @@ data = []
 
 @dash.route('/')
 def index():
-    print data
     return render_template('index.html', data=data, hackathon_name=hackathon_name)
 
 if __name__ == '__main__':
-    url = "https://my.mlh.io/api/v1/users?client_id={0}&secret={1}".format(client_id, secret)    
+    url = "https://my.mlh.io/api/v1/users?client_id={0}&secret={1}".format(client_id, secret)
     response = urllib.urlopen(url)
     data = json.loads(response.read())["data"]
 
