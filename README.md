@@ -1,4 +1,4 @@
-### MLH Organizer Dash  
+### MLH Organizer Dash 💻 
   
 This is a WIP, allowing hackathons that use MyMLH to see their registrations in any easy to use interface.  
 
