@@ -13,6 +13,25 @@ data = []
 def index():
     return render_template('index.html', data=data, hackathon_name=hackathon_name)
 
+@dash.route('/stats', strict_slashes=False)
+def stats():
+
+    from collections import defaultdict
+
+    stats = {
+        "gender": defaultdict(int),
+        "university": defaultdict(int)
+    }
+
+    for person in data:
+        stats["gender"][person["gender"].lower()] += 1
+        stats["university"][person["school"]["name"]] += 1
+
+    stats["gender"] = dict(stats["gender"])
+    stats["university"] = sorted(stats["university"].iteritems(), key=lambda x: x[1], reverse=True)
+
+    return render_template('stats.html', data=data, stats=stats)
+
 @dash.route('/sorted_univ', strict_slashes=False)
 def sort_univ():
     return render_template('index.html', data=sorted(data, key=lambda x: x["school"]["name"]), hackathon_name=hackathon_name)
@@ -30,4 +49,4 @@ if __name__ == '__main__':
     response = urllib.urlopen(url)
     data = json.loads(response.read())["data"]
 
-    dash.run()
+    dash.run(debug=True)
