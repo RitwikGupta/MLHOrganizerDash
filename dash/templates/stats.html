@@ -90,7 +90,7 @@
                                             <tr>
                                                 <th>Male</th>
                                                 <th>Female</th>
-                                                <th>Non-Binary</a></th>
+                                                <th>Non-Binary</th>
                                                 <th>Doesn't Say</th>
                                             </tr>
                                         </thead>
@@ -124,7 +124,13 @@
                   <div class="col-lg-12">
                     <div class="panel panel-default">
                       <div class="table-responsive">
-                        <table class="table table-bordered table-hover table-striped">
+                        <table class="table table-bordered table-hover table-striped sortable">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Count</th>
+                                </tr>
+                            </thead>
                             <tbody>
                                 {% for univ in stats["university"] %}
                                 <tr>
