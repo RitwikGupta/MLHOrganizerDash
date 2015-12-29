@@ -86,9 +86,9 @@
                                     <table class="table table-bordered table-hover table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Name</th>
-						<th>Gender</th>
-                                                <th>University</th>
+                                                <th><a href=" {{ url_for('sort_name') }}"> Name</a></th>
+                                                <th><a href=" {{ url_for('sort_gender') }}"> Gender</a></th>
+                                                <th><a href=" {{ url_for('sort_univ') }}"> University</a></th>
                                                 <th>Dietary Restriction</th>
                                             </tr>
                                         </thead>
