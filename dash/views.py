@@ -19,7 +19,7 @@ def sort_univ():
 
 @dash.route('/sorted_name', strict_slashes=False)
 def sort_name():
-    return render_template('index.html', data=sorted(data, key=lambda x: x["first_name"] + " " + x["last_name"]), hackathon_name=hackathon_name)
+    return render_template('index.html', data=sorted(data, key=lambda x: x["first_name"].lower() + " " + x["last_name"].lower()), hackathon_name=hackathon_name)
 
 @dash.route('/sorted_gender', strict_slashes=False)
 def sort_gender():
