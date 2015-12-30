@@ -8,7 +8,7 @@ This is a WIP, allowing hackathons that use [MyMLH](https://my.mlh.io) to see th
 <table>
   <tr>
     <td align="center">
-      <a href="http:/https://raw.githubusercontent.com/RitwikGupta/MLHOrganizerDash/master/scrn/registrations.PNG" target="_blank" title="Registrants">
+      <a href="https://raw.githubusercontent.com/RitwikGupta/MLHOrganizerDash/master/scrn/registrations.PNG" target="_blank" title="Registrants">
         <img src="https://raw.githubusercontent.com/RitwikGupta/MLHOrganizerDash/master/scrn/registrations.PNG" alt="Apps">
       </a>
       <br />
