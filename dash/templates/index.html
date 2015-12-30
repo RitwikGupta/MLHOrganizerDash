@@ -90,6 +90,7 @@
                                   <table class="table table-bordered table-hover table-striped sortable">
                                       <thead>
                                           <tr>
+                                              <th>ID</th>
                                               <th>Name</th>
                                               <th>Gender</th>
                                               <th>University</th>
@@ -99,6 +100,7 @@
                                       <tbody>
                                           {% for row in data %}
                                           <tr>
+                                              <td>{{ row["id"] }}</td>
                                               <td>{{ row["first_name"] }} {{ row["last_name"] }}</td>
                                               <td>{{ row["gender"] }}</td>
                                               <td>{{ row["school"]["name"] }}</td>

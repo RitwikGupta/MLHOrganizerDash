@@ -38,6 +38,8 @@ def stats():
 
 @dash.route('/refresh', strict_slashes=False)
 def refresh():
+    global data
+
     url = "https://my.mlh.io/api/v1/users?client_id={0}&secret={1}".format(client_id, secret)
     response = urllib.urlopen(url)
     data = json.loads(response.read())["data"]
