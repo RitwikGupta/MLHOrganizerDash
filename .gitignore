@@ -60,3 +60,5 @@ target/
 
 # Virtual environment
 venv/
+
+dash/config.py

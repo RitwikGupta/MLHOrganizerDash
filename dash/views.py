@@ -25,10 +25,11 @@ def stats():
 
     for person in data:
         stats["gender"][person["gender"].lower()] += 1
-        stats["university"][person["school"]["name"]] += 1
+        stats["university"][person["school"]["name"].lower().strip()] += 1
 
     stats["gender"] = dict(stats["gender"])
     stats["university"] = sorted(stats["university"].iteritems(), key=lambda x: x[1], reverse=True)
+    stats["university"] = map(lambda x: (x[0].lower().strip(), x[1]), stats["university"])
 
     return render_template('stats.html', data=data, stats=stats)
 
