@@ -33,8 +33,6 @@ def stats():
 
     med = median(list(set(map(lambda x: x[1], stats["university"])))) # Lol
 
-    print "MED: " + str(med)
-
     return render_template('stats.html', data=data, stats=stats, median=med)
 
 
