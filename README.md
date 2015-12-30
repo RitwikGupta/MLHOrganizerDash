@@ -28,10 +28,10 @@ This is a WIP, allowing hackathons that use [MyMLH](https://my.mlh.io) to see th
 1. Python 2.7.6+  
 1. virtualenv (`pip install virtualenv`)  
 1. Flask  
-  
+
 (You can install Flask by running `pip install -r requirements.txt`)  
 
-## How to use  
+## Installation  
 
 1. Clone this repository and `cd` to it  
 1. Create a virtual environment called `venv` by `virtualenv venv`  
