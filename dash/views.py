@@ -21,16 +21,23 @@ def stats():
 
     stats = {
         "gender": defaultdict(int),
-        "university": defaultdict(int)
+        "university": defaultdict(int),
+        "diet_rest": defaultdict(int)
     }
 
     for person in data:
         stats["gender"][person["gender"].lower()] += 1
         stats["university"][person["school"]["name"].lower().strip()] += 1
+        stats["diet_rest"][person["dietary_restrictions"]] += 1
 
     stats["gender"] = dict(stats["gender"])
     stats["university"] = sorted(stats["university"].iteritems(), key=lambda x: x[1], reverse=True)
     stats["university"] = map(lambda x: (x[0].lower().strip(), x[1]), stats["university"])
+
+    stats["diet_rest"] = sorted(stats["diet_rest"].iteritems(), key=lambda x: x[1], reverse=True)
+    stats["diet_rest"] = map(lambda x: (x[0].lower().strip(), x[1]), stats["diet_rest"])
+
+    print stats["diet_rest"]
 
     med = median(list(set(map(lambda x: x[1], stats["university"])))) # Lol
 
