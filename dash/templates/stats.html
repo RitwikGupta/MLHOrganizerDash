@@ -57,8 +57,11 @@
                         <a href="/"><i class="fa fa-fw fa-dashboard"></i> Registrations</a>
                     </li>
                     <li class="active">
-                        <a href=" {{ url_for('stats') }}"> Stats</a>
+                        <a href="{{ url_for('stats') }}"> Stats</a>
                       </li>
+                    <li>
+                        <a href="{{ url_for('refresh') }}"> Refresh Data</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
