@@ -1,6 +1,28 @@
-### MLH Organizer Dash 💻 
-  
+### MLH Organizer Dash 💻
+
 This is a WIP, allowing hackathons that use [MyMLH](https://my.mlh.io) to see their registrations in any easy to use interface.  
+
+## Screenshots  
+
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="http:/https://raw.githubusercontent.com/RitwikGupta/MLHOrganizerDash/master/scrn/registrations.PNG" target="_blank" title="Registrants">
+        <img src="https://raw.githubusercontent.com/RitwikGupta/MLHOrganizerDash/master/scrn/registrations.PNG" alt="Apps">
+      </a>
+      <br />
+      <em>Registrants</em>
+    </td>
+    <td align="center">
+      <a href="https://raw.githubusercontent.com/RitwikGupta/MLHOrganizerDash/master/scrn/stats.PNG" target="_blank" title="Stats">
+        <img src="https://raw.githubusercontent.com/RitwikGupta/MLHOrganizerDash/master/scrn/stats.PNG" alt="Stats">
+      </a>
+      <br />
+      <em>Stats</em>
+    </td>
+  </tr>
+</table>
 
 ## How to use  
 
