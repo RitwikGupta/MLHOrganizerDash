@@ -37,8 +37,6 @@ def stats():
     stats["diet_rest"] = sorted(stats["diet_rest"].iteritems(), key=lambda x: x[1], reverse=True)
     stats["diet_rest"] = map(lambda x: (x[0].lower().strip(), x[1]), stats["diet_rest"])
 
-    print stats["diet_rest"]
-
     med = median(list(set(map(lambda x: x[1], stats["university"])))) # Lol
 
     return render_template('stats.html', data=data, stats=stats, median=med, hackathon_name=hackathon_name)
