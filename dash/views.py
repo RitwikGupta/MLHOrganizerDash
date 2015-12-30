@@ -41,7 +41,7 @@ def stats():
 
     med = median(list(set(map(lambda x: x[1], stats["university"])))) # Lol
 
-    return render_template('stats.html', data=data, stats=stats, median=med)
+    return render_template('stats.html', data=data, stats=stats, median=med, hackathon_name=hackathon_name)
 
 @dash.route('/refresh', strict_slashes=False)
 def refresh():
