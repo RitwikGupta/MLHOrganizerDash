@@ -73,10 +73,17 @@
 
                 <!-- Page Heading -->
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
                         <ol class="breadcrumb">
                             <li class="active">
                                 <i class="fa fa-dashboard"></i> Gender
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="col-lg-6">
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> Dietary Restrictions
                             </li>
                         </ol>
                     </div>
@@ -84,7 +91,7 @@
                 <!-- /.row -->
 
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
                         <div class="panel panel-default">
                           <div class="panel panel-default">
                                 <div class="table-responsive">
@@ -109,6 +116,28 @@
                                 </div>
                           </div>
                         </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="panel panel-default">
+                        <div class="table-responsive">
+                          <table class="table table-bordered table-hover table-striped sortable">
+                              <thead>
+                                  <tr>
+                                      <th>Dietary Rest.</th>
+                                      <th>Count</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  {% for rest in stats["diet_rest"] %}
+                                  <tr>
+                                      <td>{{ rest[0] }}</td>
+                                      <td>{{ rest[1] }}</td>
+                                  </tr>
+                                  {% endfor %}
+                              </tbody>
+                          </table>
+                        </div>
+                      </div>
                     </div>
                 </div>
                 <!-- /.row -->
@@ -143,41 +172,6 @@
                                     {% else %}
                                     <td>{{ univ[1] }}</td>
                                     {% endif %}
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <ol class="breadcrumb">
-                            <li class="active">
-                                <i class="fa fa-dashboard"></i> Dietary Restrictions
-                            </li>
-                        </ol>
-                    </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-lg-12">
-                    <div class="panel panel-default">
-                      <div class="table-responsive">
-                        <table class="table table-bordered table-hover table-striped sortable">
-                            <thead>
-                                <tr>
-                                    <th>Dietary Rest.</th>
-                                    <th>Count</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for rest in stats["diet_rest"] %}
-                                <tr>
-                                    <td>{{ rest[0] }}</td>
-                                    <td>{{ rest[1] }}</td>
                                 </tr>
                                 {% endfor %}
                             </tbody>
