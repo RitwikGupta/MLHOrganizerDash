@@ -31,6 +31,8 @@ This is a WIP, allowing hackathons that use [MyMLH](https://my.mlh.io) to see th
 
 ## Installation  
 
+**Warning to Windows users: These steps can be reproduced in Windows, but it will take a lot of effort, and it's easier to just spin up a Linux VM/server**  
+
 1. Clone this repository and `cd` to it  
 1. Create a virtual environment called `venv` by `virtualenv venv`  
 1. Activate the virtualenv by `. venv/bin/activate`  
