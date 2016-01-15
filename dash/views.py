@@ -5,6 +5,7 @@ from config import client_id, secret, hackathon_name
 import urllib, json
 import datetime
 import random
+import os 
 
 import matplotlib.pyplot as plt
 import tempfile
@@ -25,8 +26,6 @@ def index():
 
 @dash.route('/stats', strict_slashes=False)
 def stats():
-
-    from collections import defaultdict
 
     stats = {
         "gender": defaultdict(int),
@@ -66,6 +65,12 @@ def stats():
 
     e_y = [sum(y[:i+1]) for i in range(len(y))]
 
+    try:
+        os.remove('dash/static/img/graph.png')
+        os.remove('dash/static/img/graphTwo.png')
+    except OSError:
+        pass
+
     f = open('dash/static/img/graph.png', 'w')
     plt.plot(x,y)
     plt.ylabel("Number of registrants per day")
@@ -83,6 +88,8 @@ def stats():
     plt.title("Total number of registrations over time for SteelHacks")
     plt.savefig(f)
     f.close()
+
+    plt.clf()
 
     return render_template('stats.html', data=data, stats=stats, median=med, hackathon_name=hackathon_name)
 
