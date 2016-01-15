@@ -35,5 +35,7 @@ This is a WIP, allowing hackathons that use [MyMLH](https://my.mlh.io) to see th
 1. Create a virtual environment called `venv` by `virtualenv venv`  
 1. Activate the virtualenv by `. venv/bin/activate`  
 1. Install all requirements inside the virtualenv by `pip install -r requirements.txt`  
+1. Install devel libraries `sudo apt-get install libpng-dev libjpeg8-dev libfreetype6-dev`  
+1. Run `pip install matplotlib` in your virtualenv  
 1. Edit `dash/config.py` to your needs  
 1. Run the server via `python dash/views.py`

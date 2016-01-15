@@ -71,7 +71,15 @@
 
             <div class="container-fluid">
 
-                <img src="{{ url_for('getgraphs') }}" alt="Image Placeholder" height="100">
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <img src="{{ url_for('static', filename='img/graph.png') }}" alt="Graphs" class="img-responsive">
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="{{ url_for('static', filename='img/graphTwo.png') }}" alt="Graphs" class="img-responsive">
+                    </div>
+               </div>
 
                 <!-- Page Heading -->
                 <div class="row">
