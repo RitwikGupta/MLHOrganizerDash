@@ -7,11 +7,6 @@ import datetime
 import random
 import os 
 
-import matplotlib.pyplot as plt
-import tempfile
-import matplotlib
-matplotlib.use('Agg') # this allo
-
 from collections import defaultdict
 
 dash = Flask(__name__, static_url_path='')
@@ -46,50 +41,6 @@ def stats():
     stats["diet_rest"] = map(lambda x: (x[0].lower().strip(), x[1]), stats["diet_rest"])
 
     med = median(list(set(map(lambda x: x[1], stats["university"])))) # Lol
-
-    t_x = map(lambda x: (x["updated_at"], 1), data)
-
-    date_count = defaultdict(int)
-
-    for date, num in t_x:
-        date_count[datetime.datetime.strptime(date[:10],'%Y-%m-%d')] += 1
-
-    t_x = dict(date_count)
-
-    t_x = t_x.items()
-    t_x.sort()
-    t_x = t_x[1:]
-
-    x = map(lambda x: x[0], t_x)
-    y = map(lambda y: y[1], t_x)
-
-    e_y = [sum(y[:i+1]) for i in range(len(y))]
-
-    try:
-        os.remove('dash/static/img/graph.png')
-        os.remove('dash/static/img/graphTwo.png')
-    except OSError:
-        pass
-
-    f = open('dash/static/img/graph.png', 'w')
-    plt.plot(x,y)
-    plt.ylabel("Number of registrants per day")
-    plt.xlabel("Days")
-    plt.title("Number of registrants per day for SteelHacks")
-    plt.savefig(f)
-    f.close() # close the file
-
-    plt.clf()
-
-    f = open('dash/static/img/graphTwo.png', 'w')
-    plt.plot(x, e_y)
-    plt.ylabel("Number of registrants total")
-    plt.xlabel("Days")
-    plt.title("Total number of registrations over time for SteelHacks")
-    plt.savefig(f)
-    f.close()
-
-    plt.clf()
 
     return render_template('stats.html', data=data, stats=stats, median=med, hackathon_name=hackathon_name)
 
