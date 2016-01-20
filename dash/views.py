@@ -14,6 +14,8 @@ dash = Flask(__name__, static_url_path='')
 url = ""
 data = []
 
+typos = {"univeristy of pittsburgh": "university of pittsburgh", "mcmaster universiry": "mcmaster university"}
+
 
 @dash.route('/')
 def index():
@@ -39,8 +41,15 @@ def stats():
 
     stats["diet_rest"] = sorted(stats["diet_rest"].iteritems(), key=lambda x: x[1], reverse=True)
     stats["diet_rest"] = map(lambda x: (x[0].lower().strip(), x[1]), stats["diet_rest"])
-
+   
     med = median(list(set(map(lambda x: x[1], stats["university"])))) # Lol
+
+    stats["university"] = dict(stats["university"])    
+    for typo in typos:
+        stats["university"][typos[typo]] += stats["university"][typo]
+        del stats["university"][typo]
+
+    print stats["university"]   
 
     return render_template('stats.html', data=data, stats=stats, median=med, hackathon_name=hackathon_name)
 

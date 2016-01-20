@@ -137,11 +137,11 @@
                             <tbody>
                                 {% for univ in stats["university"] %}
                                 <tr>
-                                    <td>{{ univ[0] }}</td>
-                                    {% if univ[1] >= median %}
-                                    <td style="color:red">{{ univ[1] }}</td>
+                                    <td>{{ univ }}</td>
+                                    {% if stats["university"][univ] >= median %}
+                                    <td style="color:red">{{ stats["university"][univ] }}</td>
                                     {% else %}
-                                    <td>{{ univ[1] }}</td>
+                                    <td>{{ stats["university"][univ] }}</td>
                                     {% endif %}
                                 </tr>
                                 {% endfor %}
