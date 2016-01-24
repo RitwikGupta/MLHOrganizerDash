@@ -49,8 +49,6 @@ def stats():
         stats["university"][typos[typo]] += stats["university"][typo]
         del stats["university"][typo]
 
-    print stats["university"]   
-
     return render_template('stats.html', data=data, stats=stats, median=med, hackathon_name=hackathon_name)
 
 @dash.route('/refresh', strict_slashes=False)
