@@ -14,7 +14,7 @@ dash = Flask(__name__, static_url_path='')
 url = ""
 data = []
 
-typos = {"univeristy of pittsburgh": "university of pittsburgh", "mcmaster universiry": "mcmaster university"}
+typos = {}
 
 
 @dash.route('/')
