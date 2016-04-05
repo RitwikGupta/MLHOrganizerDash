@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, send_file, make_response
 
-from config import client_id, secret, hackathon_name
+from config import client_id, secret, hackathon_name, typo_mapping
 
 import urllib, json
 import datetime
@@ -13,9 +13,6 @@ dash = Flask(__name__, static_url_path='')
 
 url = ""
 data = []
-
-typos = {}
-
 
 @dash.route('/')
 def index():
@@ -45,8 +42,8 @@ def stats():
     med = median(list(set(map(lambda x: x[1], stats["university"])))) # Lol
 
     stats["university"] = dict(stats["university"])    
-    for typo in typos:
-        stats["university"][typos[typo]] += stats["university"][typo]
+    for typo in typo_mapping:
+        stats["university"][typo_mapping[typo]] += stats["university"][typo]
         del stats["university"][typo]
 
     return render_template('stats.html', data=data, stats=stats, median=med, hackathon_name=hackathon_name)
