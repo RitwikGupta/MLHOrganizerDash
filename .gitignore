@@ -64,3 +64,4 @@ venv/
 config.py
 
 dash/static/img/graph*.png
+nohup.out
