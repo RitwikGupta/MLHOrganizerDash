@@ -43,8 +43,11 @@ def stats():
 
     stats["university"] = dict(stats["university"])
     for typo in typo_mapping:
-        stats["university"][typo_mapping[typo]] += stats["university"][typo]
-        del stats["university"][typo]
+        if typo_mapping[typo] not in stats["university"]:
+            stats["university"][typo_mapping[typo]] = 0
+        if typo in stats["university"]:
+            stats["university"][typo_mapping[typo]] += stats["university"][typo]
+            del stats["university"][typo]
 
     return render_template('stats.html', data=data, stats=stats, median=med, hackathon_name=hackathon_name)
 
