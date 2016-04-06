@@ -1,11 +1,11 @@
 from flask import Flask, render_template, redirect, url_for, send_file, make_response
 
-from config import client_id, secret, hackathon_name
+from config import client_id, secret, hackathon_name, typo_mapping
 
 import urllib, json
 import datetime
 import random
-import os 
+import os
 
 from collections import defaultdict
 
@@ -13,9 +13,6 @@ dash = Flask(__name__, static_url_path='')
 
 url = ""
 data = []
-
-typos = {"univeristy of pittsburgh": "university of pittsburgh", "mcmaster universiry": "mcmaster university"}
-
 
 @dash.route('/')
 def index():
@@ -41,13 +38,16 @@ def stats():
 
     stats["diet_rest"] = sorted(stats["diet_rest"].iteritems(), key=lambda x: x[1], reverse=True)
     stats["diet_rest"] = map(lambda x: (x[0].lower().strip(), x[1]), stats["diet_rest"])
-   
+
     med = median(list(set(map(lambda x: x[1], stats["university"])))) # Lol
 
-    stats["university"] = dict(stats["university"])    
-    for typo in typos:
-        stats["university"][typos[typo]] += stats["university"][typo]
-        del stats["university"][typo]
+    stats["university"] = dict(stats["university"])
+    for typo in typo_mapping:
+        if typo_mapping[typo] not in stats["university"]:
+            stats["university"][typo_mapping[typo]] = 0
+        if typo in stats["university"]:
+            stats["university"][typo_mapping[typo]] += stats["university"][typo]
+            del stats["university"][typo]
 
     return render_template('stats.html', data=data, stats=stats, median=med, hackathon_name=hackathon_name)
 
@@ -73,14 +73,14 @@ def median(lst):
 #@dash.route('/getgraphs', strict_slashes=False)
 #def getgraphs():
 
-  
+
 #    canvas=FigureCanvas(f)
 #    png_output = StringIO.StringIO()
 #    canvas.print_png(png_output)
 #    response=make_response(png_output.getvalue())
 #    response.headers['Content-Type'] = 'image/png'
 #    return response
-    
+
 if __name__ == '__main__':
     url = "https://my.mlh.io/api/v1/users?client_id={0}&secret={1}".format(client_id, secret)
     response = urllib.urlopen(url)
